@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="kernel.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Sourece">
+      <UniqueIdentifier>{8e15b81a-24b3-455c-973d-ea0fa94f28c7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
