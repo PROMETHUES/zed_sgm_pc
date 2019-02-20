@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CC312583-B81A-4C9B-BE2C-C0F2C27682AB}</ProjectGuid>
     <RootNamespace>StereoMatchingSGMcuda</RootNamespace>
+    <ProjectName>zed_demo_pcl</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -26,7 +27,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -41,19 +42,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\opencv_341_build\include;D:\opencv_341_build\include\opencv;D:\opencv_341_build\include\opencv2;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\opencv_341_build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ZED_SDK_ROOT_DIR)\include;$(ZED_SDK_ROOT_DIR)\include\sl;$(ZED_SDK_ROOT_DIR)\include\sl_core;$(ZED_SDK_ROOT_DIR)\include\sl_zed;$(CUDA_PATH)\include;$(PCL_ROOT)\include\pcl-1.8;$(PCL_ROOT)\3rdParty\Boost\include\boost-1_64;$(PCL_ROOT)\3rdParty\Eigen\eigen3;$(PCL_ROOT)\3rdParty\FLANN\include;$(PCL_ROOT)\3rdParty\QHull\include;$(PCL_ROOT)\3rdParty\VTK\include\vtk-8.0;$(OPENNI2_INCLUDE64);E:\OpenCV_lib\opencv_v343x_sharedlib\include\;E:\OpenCV_lib\opencv_v343x_sharedlib\include\opencv;E:\OpenCV_lib\opencv_v343x_sharedlib\include\opencv2;E:\Research_Source_Code\SGM\libSGM-master\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ZED_SDK_ROOT_DIR)\lib;$(CUDA_PATH)\lib\x64;$(PCL_ROOT)\lib;$(PCL_ROOT)\3rdParty\Boost\lib;$(PCL_ROOT)\3rdParty\FLANN\lib;$(PCL_ROOT)\3rdParty\Qhull\lib;$(PCL_ROOT)\3rdParty\VTK\lib;$(OPENNI2_LIB64);E:\OpenCV_lib\opencv_v343x_sharedlib\x64\vc14\lib;E:\Research_Source_Code\SGM\libSGM-master\build\src\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>D:\opencv\build\include;D:\opencv\build\include\opencv;D:\opencv\build\include\opencv2;D:\PHD_Researches\StereoImageProcessing\libSGM-master\include;$(ZED_SDK_ROOT_DIR)\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>D:\opencv\build\x64\vc14\lib;D:\PHD_Researches\StereoImageProcessing\libSGM-master\build\src\Release;$(ZED_SDK_ROOT_DIR)\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opencv_aruco343.lib;opencv_aruco343d.lib;opencv_bgsegm343.lib;opencv_bgsegm343d.lib;opencv_bioinspired343.lib;opencv_bioinspired343d.lib;opencv_calib3d343.lib;opencv_calib3d343d.lib;opencv_ccalib343.lib;opencv_ccalib343d.lib;opencv_core343.lib;opencv_core343d.lib;opencv_cudaarithm343.lib;opencv_cudaarithm343d.lib;opencv_cudabgsegm343.lib;opencv_cudabgsegm343d.lib;opencv_cudacodec343.lib;opencv_cudacodec343d.lib;opencv_cudafeatures2d343.lib;opencv_cudafeatures2d343d.lib;opencv_cudafilters343.lib;opencv_cudafilters343d.lib;opencv_cudaimgproc343.lib;opencv_cudaimgproc343d.lib;opencv_cudalegacy343.lib;opencv_cudalegacy343d.lib;opencv_cudaobjdetect343.lib;opencv_cudaobjdetect343d.lib;opencv_cudaoptflow343.lib;opencv_cudaoptflow343d.lib;opencv_cudastereo343.lib;opencv_cudastereo343d.lib;opencv_cudawarping343.lib;opencv_cudawarping343d.lib;opencv_cudev343.lib;opencv_cudev343d.lib;opencv_datasets343.lib;opencv_datasets343d.lib;opencv_dnn343.lib;opencv_dnn343d.lib;opencv_dnn_objdetect343.lib;opencv_dnn_objdetect343d.lib;opencv_dpm343.lib;opencv_dpm343d.lib;opencv_face343.lib;opencv_face343d.lib;opencv_features2d343.lib;opencv_features2d343d.lib;opencv_flann343.lib;opencv_flann343d.lib;opencv_fuzzy343.lib;opencv_fuzzy343d.lib;opencv_hfs343.lib;opencv_hfs343d.lib;opencv_highgui343.lib;opencv_highgui343d.lib;opencv_imgcodecs343.lib;opencv_imgcodecs343d.lib;opencv_imgproc343.lib;opencv_imgproc343d.lib;opencv_img_hash343.lib;opencv_img_hash343d.lib;opencv_line_descriptor343.lib;opencv_line_descriptor343d.lib;opencv_ml343.lib;opencv_ml343d.lib;opencv_objdetect343.lib;opencv_objdetect343d.lib;opencv_optflow343.lib;opencv_optflow343d.lib;opencv_phase_unwrapping343.lib;opencv_phase_unwrapping343d.lib;opencv_photo343.lib;opencv_photo343d.lib;opencv_plot343.lib;opencv_plot343d.lib;opencv_reg343.lib;opencv_reg343d.lib;opencv_rgbd343.lib;opencv_rgbd343d.lib;opencv_saliency343.lib;opencv_saliency343d.lib;opencv_shape343.lib;opencv_shape343d.lib;opencv_stereo343.lib;opencv_stereo343d.lib;opencv_stitching343.lib;opencv_stitching343d.lib;opencv_structured_light343.lib;opencv_structured_light343d.lib;opencv_superres343.lib;opencv_superres343d.lib;opencv_surface_matching343.lib;opencv_surface_matching343d.lib;opencv_text343.lib;opencv_text343d.lib;opencv_tracking343.lib;opencv_tracking343d.lib;opencv_video343.lib;opencv_video343d.lib;opencv_videoio343.lib;opencv_videoio343d.lib;opencv_videostab343.lib;opencv_videostab343d.lib;opencv_xfeatures2d343.lib;opencv_xfeatures2d343d.lib;opencv_ximgproc343.lib;opencv_ximgproc343d.lib;opencv_xobjdetect343.lib;opencv_xobjdetect343d.lib;opencv_xphoto343.lib;opencv_xphoto343d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opencv_aruco343d.lib;opencv_bgsegm343d.lib;opencv_bioinspired343d.lib;opencv_calib3d343d.lib;opencv_ccalib343d.lib;opencv_core343d.lib;opencv_cudaarithm343d.lib;opencv_cudabgsegm343d.lib;opencv_cudacodec343d.lib;opencv_cudafeatures2d343d.lib;opencv_cudafilters343d.lib;opencv_cudaimgproc343d.lib;opencv_cudalegacy343d.lib;opencv_cudaobjdetect343d.lib;opencv_cudaoptflow343d.lib;opencv_cudastereo343d.lib;opencv_cudawarping343d.lib;opencv_cudev343d.lib;opencv_datasets343d.lib;opencv_dnn343d.lib;opencv_dnn_objdetect343d.lib;opencv_dpm343d.lib;opencv_face343d.lib;opencv_features2d343d.lib;opencv_flann343d.lib;opencv_fuzzy343d.lib;opencv_hfs343d.lib;opencv_highgui343d.lib;opencv_imgcodecs343d.lib;opencv_imgproc343d.lib;opencv_img_hash343d.lib;opencv_line_descriptor343d.lib;opencv_ml343d.lib;opencv_objdetect343d.lib;opencv_optflow343d.lib;opencv_phase_unwrapping343d.lib;opencv_photo343d.lib;opencv_plot343d.lib;opencv_reg343d.lib;opencv_rgbd343d.lib;opencv_saliency343d.lib;opencv_shape343d.lib;opencv_stereo343d.lib;opencv_stitching343d.lib;opencv_structured_light343d.lib;opencv_superres343d.lib;opencv_surface_matching343d.lib;opencv_text343d.lib;opencv_tracking343d.lib;opencv_video343d.lib;opencv_videoio343d.lib;opencv_videostab343d.lib;opencv_viz343d.lib;opencv_xfeatures2d343d.lib;opencv_ximgproc343d.lib;opencv_xobjdetect343d.lib;opencv_xphoto343d.lib;sgm.lib;sl_core64.lib;sl_input64.lib;sl_zed64.lib;cublas.lib;cublas_device.lib;cuda.lib;cudadevrt.lib;cudart.lib;cudart_static.lib;cufft.lib;cufftw.lib;curand.lib;cusolver.lib;cusparse.lib;nppc.lib;nppial.lib;nppicc.lib;nppicom.lib;nppidei.lib;nppif.lib;nppig.lib;nppim.lib;nppist.lib;nppisu.lib;nppitc.lib;npps.lib;nvblas.lib;nvcuvid.lib;nvgraph.lib;nvml.lib;nvrtc.lib;OpenCL.lib;pcl_common_debug.lib;pcl_features_debug.lib;pcl_filters_debug.lib;pcl_io_debug.lib;pcl_io_ply_debug.lib;pcl_kdtree_debug.lib;pcl_keypoints_debug.lib;pcl_ml_debug.lib;pcl_octree_debug.lib;pcl_outofcore_debug.lib;pcl_people_debug.lib;pcl_recognition_debug.lib;pcl_registration_debug.lib;pcl_sample_consensus_debug.lib;pcl_search_debug.lib;pcl_segmentation_debug.lib;pcl_stereo_debug.lib;pcl_surface_debug.lib;pcl_tracking_debug.lib;pcl_visualization_debug.lib;libboost_atomic-vc140-mt-gd-1_64.lib;libboost_bzip2-vc140-mt-gd-1_64.lib;libboost_chrono-vc140-mt-gd-1_64.lib;libboost_container-vc140-mt-gd-1_64.lib;libboost_context-vc140-mt-gd-1_64.lib;libboost_coroutine-vc140-mt-gd-1_64.lib;libboost_date_time-vc140-mt-gd-1_64.lib;libboost_exception-vc140-mt-gd-1_64.lib;libboost_fiber-vc140-mt-gd-1_64.lib;libboost_filesystem-vc140-mt-gd-1_64.lib;libboost_graph-vc140-mt-gd-1_64.lib;libboost_graph_parallel-vc140-mt-gd-1_64.lib;libboost_iostreams-vc140-mt-gd-1_64.lib;libboost_locale-vc140-mt-gd-1_64.lib;libboost_log-vc140-mt-gd-1_64.lib;libboost_log_setup-vc140-mt-gd-1_64.lib;libboost_math_c99-vc140-mt-gd-1_64.lib;libboost_math_c99f-vc140-mt-gd-1_64.lib;libboost_math_c99l-vc140-mt-gd-1_64.lib;libboost_math_tr1-vc140-mt-gd-1_64.lib;libboost_math_tr1f-vc140-mt-gd-1_64.lib;libboost_math_tr1l-vc140-mt-gd-1_64.lib;libboost_mpi-vc140-mt-gd-1_64.lib;libboost_numpy-vc140-mt-gd-1_64.lib;libboost_numpy3-vc140-mt-gd-1_64.lib;libboost_prg_exec_monitor-vc140-mt-gd-1_64.lib;libboost_program_options-vc140-mt-gd-1_64.lib;libboost_python-vc140-mt-gd-1_64.lib;libboost_python3-vc140-mt-gd-1_64.lib;libboost_random-vc140-mt-gd-1_64.lib;libboost_regex-vc140-mt-gd-1_64.lib;libboost_serialization-vc140-mt-gd-1_64.lib;libboost_signals-vc140-mt-gd-1_64.lib;libboost_system-vc140-mt-gd-1_64.lib;libboost_test_exec_monitor-vc140-mt-gd-1_64.lib;libboost_thread-vc140-mt-gd-1_64.lib;libboost_timer-vc140-mt-gd-1_64.lib;libboost_type_erasure-vc140-mt-gd-1_64.lib;libboost_unit_test_framework-vc140-mt-gd-1_64.lib;libboost_wave-vc140-mt-gd-1_64.lib;libboost_wserialization-vc140-mt-gd-1_64.lib;libboost_zlib-vc140-mt-gd-1_64.lib;flann-gd.lib;flann_cpp-gd.lib;flann_cpp_s-gd.lib;flann_s-gd.lib;qhullcpp_d.lib;qhullstatic_d.lib;qhullstatic_r_d.lib;qhull_d.lib;qhull_p_d.lib;qhull_r_d.lib;vtkalglib-8.0-gd.lib;vtkChartsCore-8.0-gd.lib;vtkCommonColor-8.0-gd.lib;vtkCommonComputationalGeometry-8.0-gd.lib;vtkCommonCore-8.0-gd.lib;vtkCommonDataModel-8.0-gd.lib;vtkCommonExecutionModel-8.0-gd.lib;vtkCommonMath-8.0-gd.lib;vtkCommonMisc-8.0-gd.lib;vtkCommonSystem-8.0-gd.lib;vtkCommonTransforms-8.0-gd.lib;vtkDICOMParser-8.0-gd.lib;vtkDomainsChemistry-8.0-gd.lib;vtkexoIIc-8.0-gd.lib;vtkexpat-8.0-gd.lib;vtkFiltersAMR-8.0-gd.lib;vtkFiltersCore-8.0-gd.lib;vtkFiltersExtraction-8.0-gd.lib;vtkFiltersFlowPaths-8.0-gd.lib;vtkFiltersGeneral-8.0-gd.lib;vtkFiltersGeneric-8.0-gd.lib;vtkFiltersGeometry-8.0-gd.lib;vtkFiltersHybrid-8.0-gd.lib;vtkFiltersHyperTree-8.0-gd.lib;vtkFiltersImaging-8.0-gd.lib;vtkFiltersModeling-8.0-gd.lib;vtkFiltersParallel-8.0-gd.lib;vtkFiltersParallelImaging-8.0-gd.lib;vtkFiltersPoints-8.0-gd.lib;vtkFiltersProgrammable-8.0-gd.lib;vtkFiltersSelection-8.0-gd.lib;vtkFiltersSMP-8.0-gd.lib;vtkFiltersSources-8.0-gd.lib;vtkFiltersStatistics-8.0-gd.lib;vtkFiltersTexture-8.0-gd.lib;vtkFiltersTopology-8.0-gd.lib;vtkFiltersVerdict-8.0-gd.lib;vtkfreetype-8.0-gd.lib;vtkGeovisCore-8.0-gd.lib;vtkgl2ps-8.0-gd.lib;vtkhdf5-8.0-gd.lib;vtkhdf5_hl-8.0-gd.lib;vtkImagingColor-8.0-gd.lib;vtkImagingCore-8.0-gd.lib;vtkImagingFourier-8.0-gd.lib;vtkImagingGeneral-8.0-gd.lib;vtkImagingHybrid-8.0-gd.lib;vtkImagingMath-8.0-gd.lib;vtkImagingMorphological-8.0-gd.lib;vtkImagingSources-8.0-gd.lib;vtkImagingStatistics-8.0-gd.lib;vtkImagingStencil-8.0-gd.lib;vtkInfovisCore-8.0-gd.lib;vtkInfovisLayout-8.0-gd.lib;vtkInteractionImage-8.0-gd.lib;vtkInteractionStyle-8.0-gd.lib;vtkInteractionWidgets-8.0-gd.lib;vtkIOAMR-8.0-gd.lib;vtkIOCore-8.0-gd.lib;vtkIOEnSight-8.0-gd.lib;vtkIOExodus-8.0-gd.lib;vtkIOExport-8.0-gd.lib;vtkIOExportOpenGL-8.0-gd.lib;vtkIOGeometry-8.0-gd.lib;vtkIOImage-8.0-gd.lib;vtkIOImport-8.0-gd.lib;vtkIOInfovis-8.0-gd.lib;vtkIOLegacy-8.0-gd.lib;vtkIOLSDyna-8.0-gd.lib;vtkIOMINC-8.0-gd.lib;vtkIOMovie-8.0-gd.lib;vtkIONetCDF-8.0-gd.lib;vtkIOParallel-8.0-gd.lib;vtkIOParallelXML-8.0-gd.lib;vtkIOPLY-8.0-gd.lib;vtkIOSQL-8.0-gd.lib;vtkIOTecplotTable-8.0-gd.lib;vtkIOVideo-8.0-gd.lib;vtkIOXML-8.0-gd.lib;vtkIOXMLParser-8.0-gd.lib;vtkjpeg-8.0-gd.lib;vtkjsoncpp-8.0-gd.lib;vtklibharu-8.0-gd.lib;vtklibxml2-8.0-gd.lib;vtklz4-8.0-gd.lib;vtkmetaio-8.0-gd.lib;vtkNetCDF-8.0-gd.lib;vtknetcdf_c++-gd.lib;vtkoggtheora-8.0-gd.lib;vtkParallelCore-8.0-gd.lib;vtkpng-8.0-gd.lib;vtkproj4-8.0-gd.lib;vtkRenderingAnnotation-8.0-gd.lib;vtkRenderingContext2D-8.0-gd.lib;vtkRenderingContextOpenGL-8.0-gd.lib;vtkRenderingCore-8.0-gd.lib;vtkRenderingFreeType-8.0-gd.lib;vtkRenderingGL2PS-8.0-gd.lib;vtkRenderingImage-8.0-gd.lib;vtkRenderingLabel-8.0-gd.lib;vtkRenderingLIC-8.0-gd.lib;vtkRenderingLOD-8.0-gd.lib;vtkRenderingOpenGL-8.0-gd.lib;vtkRenderingVolume-8.0-gd.lib;vtkRenderingVolumeOpenGL-8.0-gd.lib;vtksqlite-8.0-gd.lib;vtksys-8.0-gd.lib;vtktiff-8.0-gd.lib;vtkverdict-8.0-gd.lib;vtkViewsContext2D-8.0-gd.lib;vtkViewsCore-8.0-gd.lib;vtkViewsInfovis-8.0-gd.lib;vtkzlib-8.0-gd.lib;OpenNI2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
@@ -72,17 +77,36 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opencv_world343d.lib;sgm.lib;sl_core64.lib;sl_input64.lib;sl_zed64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CudaCompile Include="kernel.cu" />
+    <ClInclude Include="init.h" />
+    <ClInclude Include="mat_convert.h" />
+    <ClInclude Include="zed_demo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="init.cpp" />
+    <ClCompile Include="mat_convert.cpp" />
+    <ClCompile Include="zed_demo_PCLViewer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 9.2.targets" />
+    <Import Project="..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets" Condition="Exists('..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets')" />
+    <Import Project="..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets" Condition="Exists('..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets'))" />
+  </Target>
 </Project>

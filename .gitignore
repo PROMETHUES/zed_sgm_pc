@@ -240,3 +240,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/StereoMatchingSGMcuda/zed_demo_filter.cpp
+/StereoMatchingSGMcuda/zed_demo.cpp
+/StereoMatchingSGMcuda/GLViewer.cpp
+/StereoMatchingSGMcuda/GLViewer.hpp
+*.config

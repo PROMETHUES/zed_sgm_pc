@@ -1,11 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CudaCompile Include="kernel.cu" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Sourece">
+    <Filter Include="Header">
+      <UniqueIdentifier>{78e15a87-1cef-4070-86ca-8f826f2f10f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
       <UniqueIdentifier>{8e15b81a-24b3-455c-973d-ea0fa94f28c7}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="zed_demo.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="mat_convert.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="init.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mat_convert.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="init.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="zed_demo_PCLViewer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
